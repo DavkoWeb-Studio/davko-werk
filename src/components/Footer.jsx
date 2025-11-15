@@ -71,7 +71,7 @@ export function Footer() {
             </div>
             <div className="mt-3 pt-3 border-t border-gray-700">
               <span className="text-xs text-gray-400">{t('footer.languages')}</span>
-              <div className="text-sm text-gray-300 font-semibold">Nederlands • Polski</div>
+              <div className="text-sm text-gray-300 font-semibold">Dutch • Pools • Engels</div>
             </div>
           </div>
         </div>

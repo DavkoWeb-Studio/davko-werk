@@ -113,9 +113,9 @@
               <div className="p-5 rounded-xl bg-yellow-400 shadow-lg mt-6">
                 <div className="text-sm font-bold text-gray-800">{t('contact.languages')}</div>
                 <div className="font-black text-xl text-gray-900 mt-1 flex flex-col">
-                  <span>🇳🇱 Nederlands</span>
-                  <span>🇵🇱 Polski</span>
-                  <span>🇬🇧 English</span>
+                  <span>🇳🇱 Dutch</span>
+                  <span>🇵🇱 Pools </span>
+                  <span>🇬🇧 Engels</span>
                 </div>
               </div>
             </div>
