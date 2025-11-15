@@ -1,23 +1,26 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import jaImg from '../assets/ja.png';
 
 export function AboutMe() {
+  const { t } = useTranslation();
+
   const features = [
     {
-      title: 'Komunikacja w języku holenderskim',
-      desc: 'Swobodnie rozmawiam po holendersku z klientami i współpracownikami.'
+      title: t('about.features.communication.title'),
+      desc: t('about.features.communication.desc')
     },
     {
-      title: 'Doświadczenie międzynarodowe',
-      desc: '5+ lat praktyki w Holandii oraz wieloletnie doświadczenie z Polski.'
+      title: t('about.features.experience.title'),
+      desc: t('about.features.experience.desc')
     },
     {
-      title: 'Nowe budownictwo i renowacje',
-      desc: 'Codzienna praca przy różnorodnych projektach — znam te obszary od podstaw.'
+      title: t('about.features.projects.title'),
+      desc: t('about.features.projects.desc')
     },
     {
-      title: 'Elastyczność i współpraca',
-      desc: 'Otwarty na różne rozwiązania, zawsze szukam optymalnej drogi.'
+      title: t('about.features.flexibility.title'),
+      desc: t('about.features.flexibility.desc')
     }
   ];
 
@@ -33,8 +36,7 @@ export function AboutMe() {
 
       <div className="max-w-[1600px] mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-        
-          <h2 className="text-5xl md:text-6xl font-extrabold mt-8 text-white">O mnie</h2>
+          <h2 className="text-5xl md:text-6xl font-extrabold mt-8 text-white">{t('about.title')}</h2>
         </div>
 
         {/* Zdjęcie + treść - flex z 200px gap */}
@@ -60,7 +62,7 @@ export function AboutMe() {
                 <div className="absolute bottom-8 -right-8 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-full p-8 shadow-2xl border-4 border-white/20">
                   <div className="text-center">
                     <div className="text-5xl font-black text-gray-900">5+</div>
-                    <div className="text-base font-bold text-gray-800">lat</div>
+                    <div className="text-base font-bold text-gray-800">{t('hero.stats.experience')}</div>
                   </div>
                 </div>
 
@@ -78,40 +80,47 @@ export function AboutMe() {
             {/* Górna sekcja - opis */}
             <div className="space-y-6">
               <div className="bg-white/5 backdrop-blur-md text-white rounded-2xl p-8 shadow-xl border border-white/10">
-                <h3 className="text-3xl font-extrabold mb-4 text-blue-400">Kim jestem?</h3>
+                <h3 className="text-3xl font-extrabold mb-4 text-blue-400">{t('about.whoAmI')}</h3>
                 <p className="text-lg font-medium leading-relaxed mb-4 text-gray-300">
-                  Jestem osobą otwartą i elastyczną. Wiem, że do każdego zadania prowadzi kilka dróg, 
-                  a najlepsze rozwiązania leżą zwykle pośrodku.
+                  {t('about.description1')}
                 </p>
                 <p className="text-lg font-medium leading-relaxed text-gray-300">
-                  Stawiam na jasną komunikację i współpracę bez stresu. Dyplomacja to moja mocna strona — 
-                  potrafię słuchać, tłumaczyć i znaleźć rozwiązanie, które zadowoli każdą ze stron.
+                  {t('about.description2')}
                 </p>
               </div>
 
               <div className="bg-gradient-to-r from-yellow-500/90 to-yellow-600/90 backdrop-blur-md rounded-2xl p-8 shadow-xl border border-yellow-400/30">
                 <div className="flex items-start justify-between flex-wrap gap-4">
                   <div>
-                    <div className="text-sm font-bold text-yellow-100">Współpraca B2B</div>
+                    <div className="text-sm font-bold text-yellow-100">{t('about.b2b.label')}</div>
                     <h3 className="font-black text-2xl text-white mt-1 mb-2">
-                      Podwykonawca dla firm hydraulicznych
+                      {t('about.b2b.title')}
                     </h3>
                     <p className="text-base text-yellow-50 font-semibold">
-                      Elastyczne godziny pracy • Profesjonalne podejście • Den Haag i okolice
+                      {t('about.b2b.description')}
                     </p>
                   </div>
-                  <a href="#kontakt" className="px-6 py-3 rounded-full bg-blue-600 text-white font-bold hover:bg-blue-700 transition-colors shadow-lg whitespace-nowrap">
-                    Nawiąż współpracę
+                  <a 
+                    href="#kontakt" 
+                    className="px-6 py-3 rounded-full bg-blue-600 text-white font-bold hover:bg-blue-700 
+                               hover:text-white transition-colors shadow-lg whitespace-nowrap"
+                  >
+                    {t('about.b2b.cta')}
                   </a>
                 </div>
               </div>
 
               {/* Przyciski */}
               <div className="grid grid-cols-2 gap-4">
-                <a href="#kontakt" className="px-6 py-4 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold text-lg text-center hover:from-blue-600 hover:to-blue-700 transition-all shadow-lg">
-                  Skontaktuj się
+                <a 
+                  href="#kontakt" 
+                  className="px-6 py-4 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 
+                             text-white font-bold text-lg text-center
+                             hover:text-white hover:from-blue-600 hover:to-blue-700 
+                             transition-all shadow-lg"
+                >
+                  {t('about.contactBtn')}
                 </a>
-              
               </div>
             </div>
           </div>

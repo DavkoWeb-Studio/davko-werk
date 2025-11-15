@@ -1,8 +1,11 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import logoImg from '../assets/logo.png';
 
 export default function Hero() {
+  const { t } = useTranslation();
+
   return (
     <section 
       id="start" 
@@ -21,41 +24,51 @@ export default function Hero() {
           <div className="max-w-3xl">
             
             {/* Główny tytuł - ANIMOWANY */}
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-extrabold leading-tight text-white mb-6">
-              <span className="inline-block animate-fade-in-up">
-                Perfekcyjna
+            <h1 className="relative text-6xl md:text-7xl lg:text-8xl font-extrabold leading-tight text-white mb-6">
+              <span className="block overflow-hidden">
+                <span className="block animate-text-reveal">
+                  {t('hero.title1')}
+                </span>
               </span>
-              <br />
-              <span className="inline-block text-blue-400 animate-fade-in-up animation-delay-200">
-                instalacja
+              <span className="block overflow-hidden mt-2">
+                <span className="block text-blue-400 animate-text-reveal animation-delay-300">
+                  {t('hero.title2')}
+                </span>
               </span>
             </h1>
 
             {/* Motto po polsku - ANIMOWANE */}
             <h3 className="text-3xl md:text-4xl font-bold text-gray-200 mb-8 animate-fade-in-up animation-delay-400">
-              Problem dzisiaj? <span className="text-yellow-400 inline-block animate-pulse">Spokój jutro</span>
+              {t('hero.motto')} <span className="text-yellow-400 inline-block animate-pulse">{t('hero.mottoHighlight')}</span>
             </h3>
 
             {/* Opis - ANIMOWANY */}
             <p className="text-xl text-gray-300 max-w-2xl mb-10 leading-relaxed animate-fade-in-up animation-delay-600">
-              Jako podwykonawca współpracuję z firmami hydraulicznymi w Holandii. 
-              Mówię po holendersku i wykonuję instalacje sanitarne z dbałością o detale.
+              {t('hero.description')}
             </p>
 
             {/* Przyciski CTA - ANIMOWANE */}
             <div className="flex flex-wrap gap-4 mb-12 animate-fade-in-up animation-delay-800">
               <a 
                 href="tel:+31647210802"
-                className="inline-flex items-center gap-3 px-10 py-5 rounded-full font-bold text-xl shadow-2xl bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:from-blue-600 hover:to-blue-700 hover:scale-110 transition-all duration-300"
+                className="inline-flex items-center gap-3 px-10 py-5 rounded-full font-bold text-xl shadow-2xl 
+                           bg-gradient-to-r from-blue-500 to-blue-600 
+                           text-white hover:text-white 
+                           hover:from-blue-600 hover:to-blue-700 
+                           hover:scale-110 transition-all duration-300"
               >
-                Zadzwoń teraz
+                {t('hero.callNow')}
                 <ChevronRight className="w-6 h-6 animate-bounce-x" />
               </a>
               <a 
                 href="#usługi"
-                className="inline-flex items-center gap-3 px-10 py-5 rounded-full border-2 border-white/30 backdrop-blur-sm font-bold text-xl text-white hover:bg-white/10 hover:border-white/50 hover:scale-105 transition-all duration-300"
+                className="inline-flex items-center gap-3 px-10 py-5 rounded-full 
+                           border-2 border-white/30 backdrop-blur-sm font-bold text-xl 
+                           text-white hover:text-[#ffcc00]
+                           hover:bg-white/10 hover:border-white/50 
+                           hover:scale-105 transition-all duration-300"
               >
-                Zobacz usługi
+                {t('hero.seeServices')}
               </a>
             </div>
 
@@ -63,17 +76,17 @@ export default function Hero() {
             <div className="flex flex-wrap gap-6 animate-fade-in-up animation-delay-1000">
               <div className="bg-white/5 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-white/10 hover:bg-white/10 hover:scale-105 transition-all duration-300">
                 <div className="text-5xl font-black text-yellow-400 mb-2">25+</div>
-                <div className="text-lg font-bold text-gray-300">Zadowolonych klientów</div>
+                <div className="text-lg font-bold text-gray-300">{t('hero.stats.clients')}</div>
               </div>
               
               <div className="bg-white/5 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-white/10 hover:bg-white/10 hover:scale-105 transition-all duration-300">
                 <div className="text-5xl font-black text-blue-400 mb-2">5+</div>
-                <div className="text-lg font-bold text-gray-300">Lat doświadczenia</div>
+                <div className="text-lg font-bold text-gray-300">{t('hero.stats.experience')}</div>
               </div>
 
               <div className="bg-white/5 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-white/10 hover:bg-white/10 hover:scale-105 transition-all duration-300">
                 <div className="text-3xl font-black text-white mb-2">NL/PL/ENG</div>
-                <div className="text-lg font-bold text-gray-300">Den Haag</div>
+                <div className="text-lg font-bold text-gray-300">{t('hero.stats.location')}</div>
               </div>
             </div>
 
@@ -83,8 +96,8 @@ export default function Hero() {
                 ZZP
               </div>
               <div>
-                <div className="font-black text-lg">Davko Werk</div>
-                <div className="text-sm text-blue-100">Hydraulik • Podwykonawca dla firm</div>
+                <div className="font-black text-lg">{t('hero.badge.title')}</div>
+                <div className="text-sm text-blue-100">{t('hero.badge.subtitle')}</div>
               </div>
             </div>
           </div>
@@ -92,7 +105,7 @@ export default function Hero() {
 
         {/* Kolumna prawa - Logo - ANIMOWANE ODDYCHANIE */}
         <div className="relative hidden lg:flex justify-center items-center">
-          <div className="relative animate-breathing">
+          <div className="relative animate-breathing scale-[2.0]">
             {/* Świecące tło za logo - z rotacją */}
             <div className="absolute inset-0 bg-blue-500/20 blur-3xl rounded-full animate-spin-slow"></div>
             <img 

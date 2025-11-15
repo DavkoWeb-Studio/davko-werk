@@ -1,8 +1,10 @@
 import React from 'react';
 import { Phone, Mail, MapPin, ArrowUp } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import logoImg from '../assets/logo.png';
 
 export function Footer() {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
   
   const scrollToTop = () => {
@@ -10,11 +12,11 @@ export function Footer() {
   };
 
   const navLinks = [
-    { label: 'Start', href: '#start' },
-    { label: 'Usługi', href: '#usługi' },
-    { label: 'Realizacje', href: '#realizacje' },
-    { label: 'O mnie', href: '#o-mnie' },
-    { label: 'Kontakt', href: '#kontakt' }
+    { label: t('nav.start'), href: '#start' },
+    { label: t('nav.services'), href: '#usługi' },
+    { label: t('nav.projects'), href: '#realizacje' },
+    { label: t('nav.about'), href: '#o-mnie' },
+    { label: t('nav.contact'), href: '#kontakt' }
   ];
 
   return (
@@ -27,17 +29,16 @@ export function Footer() {
             </div>
             <div>
               <div className="font-extrabold">Davko Werk</div>
-              <div className="text-sm text-gray-300">Hydraulik ZZP - Podwykonawca</div>
+              <div className="text-sm text-gray-300">{t('contact.position')}</div>
             </div>
           </div>
           <p className="text-sm text-gray-400">
-            5+ lat doświadczenia w Holandii. Współpracuję z firmami hydraulicznymi jako podwykonawca. 
-            Rozmawiam po holendersku i polsku.
+            {t('footer.description')}
           </p>
         </div>
 
         <div>
-          <h4 className="font-bold mb-4 text-yellow-400">Nawigacja</h4>
+          <h4 className="font-bold mb-4 text-yellow-400">{t('footer.navigation')}</h4>
           <ul className="space-y-2 text-sm">
             {navLinks.map(link => (
               <li key={link.label}>
@@ -50,7 +51,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="font-bold mb-4 text-yellow-400">Kontakt</h4>
+          <h4 className="font-bold mb-4 text-yellow-400">{t('footer.contact')}</h4>
           <div className="text-sm space-y-2">
             <div className="flex items-center gap-3">
               <Phone className="w-4 h-4 text-gray-400" />
@@ -66,10 +67,10 @@ export function Footer() {
             </div>
             <div className="flex items-center gap-3">
               <MapPin className="w-4 h-4 text-gray-400" />
-              <span className="text-gray-300">Den Haag i okolice</span>
+              <span className="text-gray-300">{t('contact.areaValue')}</span>
             </div>
             <div className="mt-3 pt-3 border-t border-gray-700">
-              <span className="text-xs text-gray-400">Języki:</span>
+              <span className="text-xs text-gray-400">{t('footer.languages')}</span>
               <div className="text-sm text-gray-300 font-semibold">Nederlands • Polski</div>
             </div>
           </div>
@@ -78,7 +79,7 @@ export function Footer() {
 
       <div className="max-w-6xl mx-auto px-6 mt-8 border-t border-gray-700 pt-6 flex items-center justify-between flex-wrap gap-4">
         <div className="text-sm text-gray-400">
-          © {currentYear} Davko Werk. Wszystkie prawa zastrzeżone.
+          {t('footer.copyright', { year: currentYear })}
         </div>
         <button 
           onClick={scrollToTop}
