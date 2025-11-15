@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Globalne style */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-gray-50 text-gray-800 font-sans antialiased;
+}
+
+h1, h2, h3, h4 {
+  @apply font-bold;
+}
+
+a {
+  @apply no-underline hover:underline hover:text-blue-600 transition-colors;
+}
+
+.btn-primary {
+  @apply inline-block bg-blue-600 text-white px-6 py-3 rounded-full font-bold hover:bg-blue-700 transition-all;
+}
+
+.container {
+  @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  .text-xl {
+    @apply text-lg;
+  }
+}
