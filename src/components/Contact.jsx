@@ -34,37 +34,48 @@ export default function Contact() {
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  if (!validateForm()) return;
+  setSending(true);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!validateForm()) return;
-    setSending(true);
+  try {
+    // 🔹 ZMIEŃ NA /api/contact (nie /api/send)
+    const apiUrl = import.meta.env.DEV 
+      ? 'http://localhost:3001/api/contact'  // Development - ZMIENIONE
+      : '/api/contact';                       // Production - ZMIENIONE
+    
+    console.log('Sending to:', apiUrl);
+    
+    const response = await fetch(apiUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(form)
+    });
 
-    try {
-      // 🔹 Zmieniony tylko endpoint fetch
-      const response = await fetch('/api/send', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form)
-      });
-
-      const result = await response.json();
-      console.log(result);
-
-      if (result.success) {
-        setSent(true);
-        setForm({ name: '', email: '', phone: '', service: '', message: '' });
-        setTimeout(() => setSent(false), 5000);
-      } else {
-        alert('Wystąpił błąd: ' + JSON.stringify(result));
-      }
-    } catch (err) {
-      console.error(err);
-      alert('Nie udało się wysłać formularza.');
-    } finally {
-      setSending(false);
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error('Response error:', response.status, errorText);
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
-  };
+
+    const result = await response.json();
+    console.log('Result:', result);
+
+    if (result.success) {
+      setSent(true);
+      setForm({ name: '', email: '', phone: '', service: '', message: '' });
+      setTimeout(() => setSent(false), 5000);
+    } else {
+      alert('Wystąpił błąd: ' + result.message);
+    }
+  } catch (err) {
+    console.error('Fetch error:', err);
+    alert('Nie udało się wysłać formularza.');
+  } finally {
+    setSending(false);
+  }
+};
 
   return (
     <section id="kontakt" className="py-24 bg-gray-900 text-white">
