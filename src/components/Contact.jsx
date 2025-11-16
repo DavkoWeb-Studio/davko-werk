@@ -55,7 +55,7 @@ export default function Contact() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          access_key: 'b2e7425d-7a1b-44fc-96ae-c5740430ac4f', // ZASTĄP SWOIM ACCESS_KEY!
+  access_key: '64b00127-0172-4b22-b270-ad604b7f7554', // ZASTĄP SWOIM ACCESS_KEY!
           subject: `Zapytanie ofertowe od ${form.name} - Davko Werk`,
           from_name: 'Formularz Kontaktowy Davko Werk',
           name: form.name,
