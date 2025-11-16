@@ -35,46 +35,47 @@ export default function Contact() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    
-    if (!validateForm()) return;
-    
-    setSending(true);
+ const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    try {
-      const formData = new FormData();
-      formData.append('access_key', 'b2e7425d-7a1b-44fc-96ae-c5740430ac4f');
-      formData.append('name', form.name);
-      formData.append('email', form.email);
-      formData.append('phone', form.phone);
-      formData.append('service', form.service);
-      formData.append('message', form.message);
-      formData.append('subject', 'Nowa wiadomość z formularza kontaktowego');
-      formData.append('from_name', 'Dawid Web Studio');
+  // opcjonalnie walidacja formularza
+  if (!validateForm()) return;
 
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: formData
-      });
+  setSending(true);
 
-      const result = await response.json();
+  try {
+    // przygotowanie danych do Web3Forms
+    const formData = new FormData();
+    formData.append('access_key', 'b2e7425d-7a1b-44fc-96ae-c5740430ac4f');
+    formData.append('name', form.name);
+    formData.append('email', form.email);
+    formData.append('phone', form.phone);
+    formData.append('service', form.service);
+    formData.append('message', form.message);
 
-      if (result.success) {
-        setSent(true);
-        setForm({ name: '', email: '', phone: '', service: '', message: '' });
-        setTimeout(() => setSent(false), 5000);
-      } else {
-        console.error(result);
-        alert('Wystąpił błąd podczas wysyłki formularza.');
-      }
-    } catch (err) {
-      console.error(err);
-      alert('Nie udało się wysłać formularza. Spróbuj ponownie.');
-    } finally {
-      setSending(false);
+    // wysyłka
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData
+    });
+
+    const result = await response.json();
+    console.log(result); // tu zobaczysz odpowiedź Web3Forms
+
+    if (result.success) {
+      setSent(true);
+      setForm({ name: '', email: '', phone: '', service: '', message: '' });
+      setTimeout(() => setSent(false), 5000);
+    } else {
+      alert('Wystąpił błąd: ' + JSON.stringify(result));
     }
-  };
+  } catch (err) {
+    console.error(err);
+    alert('Nie udało się wysłać formularza.');
+  } finally {
+    setSending(false);
+  }
+};
 
   return (
     <section id="kontakt" className="py-24 bg-gray-900 text-white">
