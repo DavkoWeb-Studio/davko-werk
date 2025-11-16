@@ -35,52 +35,40 @@ export default function Contact() {
     return Object.keys(newErrors).length === 0;
   };
 
- const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!validateForm()) return;
+    setSending(true);
 
-  // opcjonalnie walidacja formularza
-  if (!validateForm()) return;
+    try {
+      // 🔹 Zmieniony tylko endpoint fetch
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form)
+      });
 
-  setSending(true);
+      const result = await response.json();
+      console.log(result);
 
-  try {
-    // przygotowanie danych do Web3Forms
-    const formData = new FormData();
-    formData.append('access_key', 'b2e7425d-7a1b-44fc-96ae-c5740430ac4f');
-    formData.append('name', form.name);
-    formData.append('email', form.email);
-    formData.append('phone', form.phone);
-    formData.append('service', form.service);
-    formData.append('message', form.message);
-
-    // wysyłka
-    const response = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      body: formData
-    });
-
-    const result = await response.json();
-    console.log(result); // tu zobaczysz odpowiedź Web3Forms
-
-    if (result.success) {
-      setSent(true);
-      setForm({ name: '', email: '', phone: '', service: '', message: '' });
-      setTimeout(() => setSent(false), 5000);
-    } else {
-      alert('Wystąpił błąd: ' + JSON.stringify(result));
+      if (result.success) {
+        setSent(true);
+        setForm({ name: '', email: '', phone: '', service: '', message: '' });
+        setTimeout(() => setSent(false), 5000);
+      } else {
+        alert('Wystąpił błąd: ' + JSON.stringify(result));
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Nie udało się wysłać formularza.');
+    } finally {
+      setSending(false);
     }
-  } catch (err) {
-    console.error(err);
-    alert('Nie udało się wysłać formularza.');
-  } finally {
-    setSending(false);
-  }
-};
+  };
 
   return (
     <section id="kontakt" className="py-24 bg-gray-900 text-white">
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-8">
-        
         {/* Panel kontaktowy */}
         <div className="lg:col-span-1 rounded-3xl p-8 bg-white/5 backdrop-blur-md shadow-2xl border-2 border-white/10">
           <div className="mb-8">
