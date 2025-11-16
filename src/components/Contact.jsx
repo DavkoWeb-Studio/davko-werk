@@ -9,7 +9,8 @@ export default function Contact() {
     email: '', 
     phone: '', 
     service: '', 
-    message: '' 
+    message: '',
+    honeypot: '' // Dodane pole honeypot
   });
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
@@ -34,48 +35,60 @@ export default function Contact() {
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  if (!validateForm()) return;
-  setSending(true);
 
-  try {
-    // 🔹 ZMIEŃ NA /api/contact (nie /api/send)
-    const apiUrl = import.meta.env.DEV 
-      ? 'http://localhost:3001/api/contact'  // Development - ZMIENIONE
-      : '/api/contact';                       // Production - ZMIENIONE
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     
-    console.log('Sending to:', apiUrl);
-    
-    const response = await fetch(apiUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(form)
-    });
-
-    if (!response.ok) {
-      const errorText = await response.text();
-      console.error('Response error:', response.status, errorText);
-      throw new Error(`HTTP error! status: ${response.status}`);
+    // Sprawdź honeypot - jeśli wypełnione, to bot
+    if (form.honeypot) {
+      console.log('Bot detected - honeypot filled');
+      return;
     }
 
-    const result = await response.json();
-    console.log('Result:', result);
+    if (!validateForm()) return;
+    setSending(true);
 
-    if (result.success) {
-      setSent(true);
-      setForm({ name: '', email: '', phone: '', service: '', message: '' });
-      setTimeout(() => setSent(false), 5000);
-    } else {
-      alert('Wystąpił błąd: ' + result.message);
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: 'b2e7425d-7a1b-44fc-96ae-c5740430ac4f', // ZASTĄP SWOIM ACCESS_KEY!
+          subject: `Zapytanie ofertowe od ${form.name} - Davko Werk`,
+          from_name: 'Formularz Kontaktowy Davko Werk',
+          name: form.name,
+          email: form.email,
+          phone: form.phone || 'Nie podano',
+          service: form.service || 'Nie wybrano',
+          message: form.message,
+          
+          // Dodatkowe pola przeciw spamowi
+          reply_to: form.email,
+          botcheck: false,
+          redirect: false,
+          source: 'Strona Internetowa Davko Werk',
+          page_url: typeof window !== 'undefined' ? window.location.href : ''
+        }),
+      });
+
+      const result = await response.json();
+      
+      if (result.success) {
+        setSent(true);
+        setForm({ name: '', email: '', phone: '', service: '', message: '', honeypot: '' });
+        setTimeout(() => setSent(false), 5000);
+      } else {
+        alert('Wystąpił błąd: ' + result.message);
+      }
+    } catch (err) {
+      console.error('Błąd:', err);
+      alert('Nie udało się wysłać formularza. Spróbuj ponownie za chwilę.');
+    } finally {
+      setSending(false);
     }
-  } catch (err) {
-    console.error('Fetch error:', err);
-    alert('Nie udało się wysłać formularza.');
-  } finally {
-    setSending(false);
-  }
-};
+  };
 
   return (
     <section id="kontakt" className="py-24 bg-gray-900 text-white">
@@ -152,6 +165,20 @@ const handleSubmit = async (e) => {
           <h3 className="text-lg font-bold text-gray-300 mb-6">{t('contact.subtitle')}</h3>
 
           <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+            {/* Honeypot Field - ukryte przed użytkownikami */}
+            <div className="hidden">
+              <label htmlFor="honeypot">Leave this field empty</label>
+              <input
+                type="text"
+                id="honeypot"
+                name="honeypot"
+                value={form.honeypot}
+                onChange={handleChange('honeypot')}
+                tabIndex="-1"
+                autoComplete="off"
+              />
+            </div>
+
             <div>
               <label className="text-base font-bold text-gray-300">{t('contact.form.name')}</label>
               <input 
