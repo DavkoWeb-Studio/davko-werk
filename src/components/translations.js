@@ -44,7 +44,7 @@ export const translations = {
         },
         experience: {
           title: "Doświadczenie międzynarodowe",
-          desc: "5+ lat praktyki w Holandii oraz wieloletnie doświadczenie z Polski."
+          desc: "5 lat praktyki w Holandii oraz wieloletnie doświadczenie z Polski."
         },
         projects: {
           title: "Nowe budownictwo i renowacje",
@@ -181,7 +181,7 @@ export const translations = {
         },
         experience: {
           title: "Internationale ervaring",
-          desc: "5+ jaar praktijk in Nederland en jarenlange ervaring uit Polen."
+          desc: "5 jaar praktijk in Nederland en jarenlange ervaring uit Polen."
         },
         projects: {
           title: "Nieuwbouw en renovaties",
@@ -266,7 +266,7 @@ export const translations = {
       }
     },
     footer: {
-      description: "5+ jaar ervaring in Nederland. Ik werk samen met loodgietersbedrijven als onderaannemer. Ik spreek Nederlands en Pools.",
+      description: "5 jaar ervaring in Nederland. Ik werk samen met loodgietersbedrijven als onderaannemer. Ik spreek Nederlands en Pools.",
       navigation: "Navigatie",
       contact: "Contact",
       languages: "Talen:",
@@ -318,7 +318,7 @@ export const translations = {
         },
         experience: {
           title: "International experience",
-          desc: "5+ years of practice in the Netherlands and years of experience from Poland."
+          desc: "5 years of practice in the Netherlands and years of experience from Poland."
         },
         projects: {
           title: "New construction and renovations",
@@ -403,7 +403,7 @@ export const translations = {
       }
     },
     footer: {
-      description: "5+ years of experience in the Netherlands. I work with plumbing companies as a subcontractor. I speak Dutch and Polish.",
+      description: "5 years of experience in the Netherlands. I work with plumbing companies as a subcontractor. I speak Dutch and Polish.",
       navigation: "Navigation",
       contact: "Contact",
       languages: "Languages:",

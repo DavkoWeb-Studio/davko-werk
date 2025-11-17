@@ -61,7 +61,7 @@ export function AboutMe() {
                 {/* Badge 5+ lat */}
                 <div className="absolute bottom-8 -right-8 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-full p-8 shadow-2xl border-4 border-white/20">
                   <div className="text-center">
-                    <div className="text-5xl font-black text-gray-900">5+</div>
+                    <div className="text-5xl font-black text-gray-900">5</div>
                     <div className="text-base font-bold text-gray-800">{t('hero.stats.experience')}</div>
                   </div>
                 </div>
