@@ -129,7 +129,7 @@ export const translations = {
       }
     },
     footer: {
-      description: "5+ lat doświadczenia w Holandii. Współpracuję z firmami hydraulicznymi jako podwykonawca. Rozmawiam po holendersku i polsku.",
+      description: "5 lat doświadczenia w Holandii. Współpracuję z firmami hydraulicznymi jako podwykonawca. Rozmawiam po holendersku i polsku.",
       navigation: "Nawigacja",
       contact: "Kontakt",
       languages: "Języki:",
@@ -203,12 +203,12 @@ export const translations = {
         installations: {
           title: "Water- en afvoerinstallaties",
           bullets: ["Nieuwe installaties", "Renovaties", "NEN-conform"],
-          price: "€43/u"
+          price: "€44/u"
         },
         repairs: {
           title: "Spoedreparaties",
           bullets: ["Bereikbaarheid buiten kantooruren", "Snelle diagnose", "Mobiele service"],
-          price: "€43/u"
+          price: "€44/u"
         },
         bathrooms: {
           title: "Badkamer montage",
@@ -340,12 +340,12 @@ export const translations = {
         installations: {
           title: "Water and sewage installations",
           bullets: ["New installations", "Renovations", "NEN compliance"],
-          price: "€43/h"
+          price: "€44/h"
         },
         repairs: {
           title: "Emergency repairs",
           bullets: ["Availability after hours", "Quick diagnosis", "Mobile service"],
-          price: "€43/h"
+          price: "€44/h"
         },
         bathrooms: {
           title: "Bathroom installation",
