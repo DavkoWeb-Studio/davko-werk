@@ -66,12 +66,12 @@ export const translations = {
         installations: {
           title: "Instalacje wodno-kanalizacyjne",
           bullets: ["Nowe instalacje", "Renowacje", "Zgodność z NEN"],
-          price: "€43/h"
+          price: "€44/h"
         },
         repairs: {
           title: "Naprawy awaryjne",
           bullets: ["Dostępność po godzinach", "Szybka diagnoza", "Mobilny serwis"],
-          price: "€43/h"
+          price: "€44/h"
         },
         bathrooms: {
           title: "Montaż łazienek",
