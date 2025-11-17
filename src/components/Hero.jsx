@@ -80,7 +80,7 @@ export default function Hero() {
               </div>
               
               <div className="bg-white/5 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-white/10 hover:bg-white/10 hover:scale-105 transition-all duration-300">
-                <div className="text-5xl font-black text-blue-400 mb-2">5+</div>
+                <div className="text-5xl font-black text-blue-400 mb-2">5</div>
                 <div className="text-lg font-bold text-gray-300">{t('hero.stats.experience')}</div>
               </div>
 
