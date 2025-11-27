@@ -7,6 +7,7 @@ import Services from './components/Services';
 import AboutMe from './components/AboutMe';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import GalleryCarousel from './components/GalleryCarousel';
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
         <Hero />
         <Services />
         <AboutMe />
- 
+        <GalleryCarousel/>
         <Contact />
       </main>
       <Footer />

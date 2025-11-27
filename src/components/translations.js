@@ -1,5 +1,62 @@
 export const translations = {
   pl: {
+     projects: {
+      title: "Realizacje Hydrauliczne",
+      subtitle: "Ostatnie projekty wykonane w listopadzie 2025 - profesjonalne instalacje sanitarne",
+      project1: {
+        title: "Montaż Baterii Prysznicowej z Czujnikiem",
+        description: "Montaż nowoczesnej baterii prysznicowej z systemem sensorowym marki Grohe o wartości 350€. Bateria wyposażona w czujniki ruchu automatycznie uruchamia przepływ wody, zapewniając oszczędność wody nawet do 40%. Prace obejmowały precyzyjne podłączenie do instalacji zimnej i ciepłej wody oraz instalację elektryczną dla systemu sensorowego. Każdy z dwóch pryszniców zajął około 45 minut montażu.",
+        specs: "Bateria sensorowa Grohe • Wodoodporność IP68 • Oszczędność wody 40%",
+        images: [
+          "Pierwsza nowa bateria, widok z boku",
+          "Pierwsza nowa bateria, widok z przodu",
+          "Druga nowa bateria, widok z boku",
+          "Druga nowa bateria, widok z przodu",
+          "Miejsce na baterie na surowo",
+          "Sama nowa bateria"
+        ]
+      },
+      project2: {
+        title: "Instalacja Rur Grzewczych z Systemem Gazowym",
+        description: "Kompleksowa instalacja systemu grzewczego zasilanego gazem ziemnym. Projekt obejmował montaż rur miedzianych dla ciepłej wody użytkowej, podłączenie do kotła kondensacyjnego oraz wyprowadzenie rury spalinowej. Prace wykonywane były w 2-osobowym zespole. System został wyposażony w zawory bezpieczeństwa i regulatory temperatury dla optymalnej efektywności energetycznej.",
+        specs: "Kocioł kondensacyjny • Rury miedziane • System odprowadzania spalin",
+        images: [
+          "Miejsce system ogrzewania gazowego",
+          "Rury w gotowści z uchwytami",
+          "Rury w gotowości z innej strony",
+          "Przygotowanie miejsca",
+          "Montaż obudowy",
+          "System ogrzewania powieszony",
+          "System ogrzewania powieszony",
+          "Podłączenie odprowadzenia spalin"
+        ]
+      },
+      project3: {
+        title: "Łazienka dla Osób Niepełnosprawnych",
+        description: "Montaż łazienki dostosowanej do potrzeb osób poruszających się na wózku inwalidzkim. Kluczowe elementy: umywalka zamontowana 5 cm niżej niż standardowo (85 cm zamiast 90 cm) oraz specjalne uchwyty wspomagające. Umywalka z WC zajęła około 45 minut, a montaż uchwytów i przycisku spłukiwania około 2 godzin. Łączny czas realizacji: 3 godziny. To rzadki projekt - tylko raz na kilkanaście zleceń zdarza się montaż łazienki przystosowanej do wymagań dostępności.",
+        specs: "Umywalka 75 cm • Uchwyty wspomagające • Przycisk spłukiwania",
+        images: [
+          "Łazienka przed montażem",
+          "Umywalka",
+          "Toaleta z uchwytami i przyciskiem"
+        ]
+      },
+      project4: {
+        title: "Montaż Pisuarów z Osłonami Porcelanowymi",
+        description: "Montaż pisuarów z osłonami wykonanymi z wysokogatunkowej porcelany. Projekt obejmował instalację systemu pisuarowego z automatycznym spłukiwaniem oraz montaż eleganckich osłon bocznych. Porcelanowe osłony wymagały szczególnej ostrożności podczas montażu ze względu na swoją kruchość. System został wyposażony w fotokomórkę uruchamiającą spłukiwanie. Całość zajęła 1 dzień roboczy. To pionierski projekt w zakresie montażu pisuarów z osłonami porcelanowymi.",
+        specs: "Pisuar z fotokomórką • Osłony porcelanowe • Automatyczne spłukiwanie",
+        images: [
+          "Pisuar przed montażem",
+          "Montaż syfonu na wymiar",
+          "Montaż pisuaru",
+          "Montaż osłon porcelanowych",
+          "Instalacja systemu spłukiwania",
+          "Gotowa instalacja pisuaru"
+        ]
+      },
+      details: "Szczegóły realizacji",
+      projectCounter: "Projekt {{current}} z {{total}}"
+    },
     nav: {
       start: "Start",
       services: "Usługi",
@@ -137,6 +194,63 @@ export const translations = {
     }
   },
   nl: {
+     projects: {
+      title: "Loodgietersprojecten",
+      subtitle: "Recente projecten uitgevoerd in november 2025 - professionele sanitair installaties",
+      project1: {
+        title: "Montage Douchekraan met Sensor",
+        description: "Montage van een moderne douchekraan met sensorsysteem van Grohe ter waarde van €350. De kraan is uitgerust met bewegingssensoren die automatisch de waterstroom activeren, wat tot 40% waterbesparing oplevert. De werkzaamheden omvatten de precieze aansluiting op koud en warm water en de elektrische installatie voor het sensorsysteem. Elke douche kostte ongeveer 45 minuten montagetijd.",
+        specs: "Sensor kraan Grohe • Waterdichtheid IP68 • Waterbesparing 40%",
+        images: [
+          "Eerste nieuwe kraan, zijaanzicht",
+          "Eerste nieuwe kraan, vooraanzicht",
+          "Tweede nieuwe kraan, zijaanzicht",
+          "Tweede nieuwe kraan, vooraanzicht",
+          "Ruimte voor kranen in ruwbouw",
+          "Alleen de nieuwe kraan"
+        ]
+      },
+      project2: {
+        title: "Installatie Verwarmingsleidingen met Gassysteem",
+        description: "Complete installatie van een verwarmingssysteem op aardgas. Het project omvatte montage van koperen leidingen voor warm water, aansluiting op een condensatieketel en afvoer van de rookgasleiding. Werkzaamheden werden uitgevoerd in een 2-persoonsteam. Het systeem is uitgerust met veiligheidskleppen en temperatuurregelaars voor optimale energie-efficiëntie.",
+        specs: "Condensatieketel • Koperen leidingen • Rookgasafvoersysteem",
+        images: [
+          "Plaats gasketelsysteem",
+          "Leidingen gereed met bevestigingen",
+          "Leidingen gereed vanaf andere kant",
+          "Voorbereiding plaats",
+          "Montage behuizing",
+          "Verwarmingssysteem opgehangen",
+          "Verwarmingssysteem opgehangen",
+          "Aansluiting rookgasafvoer"
+        ]
+      },
+      project3: {
+        title: "Badkamer voor Minder Validen",
+        description: "Montage van een badkamer aangepast aan de behoeften van rolstoelgebruikers. Belangrijke elementen: wastafel 5 cm lager gemonteerd dan standaard (85 cm in plaats van 90 cm) en speciale ondersteuningshandgrepen. Wastafel met toilet kostte ongeveer 45 minuten, montage handgrepen en spoelknop ongeveer 2 uur. Totale uitvoeringstijd: 3 uur. Dit is een zeldzaam project - slechts eens in de zoveel opdrachten komt montage van een toegankelijke badkamer voor.",
+        specs: "Wastafel 75 cm • Ondersteuningshandgrepen • Spoelknop",
+        images: [
+          "Badkamer voor montage",
+          "Wastafel",
+          "Toilet met handgrepen en knop"
+        ]
+      },
+      project4: {
+        title: "Montage Urinoirs met Porseleinen Afscherming",
+        description: "Montage van urinoirs met afschermingen van hoogwaardig porselein. Het project omvatte installatie van urinoirsysteem met automatische spoeling en montage van elegante zijafschermingen. Porseleinen afschermingen vereisten speciale voorzichtigheid tijdens montage vanwege hun broosheid. Het systeem is uitgerust met een fotocel die de spoeling activeert. Geheel kostte 1 werkdag. Dit is een pioniersproject op het gebied van montage van urinoirs met porseleinen afschermingen.",
+        specs: "Urinoir met fotocel • Porseleinen afschermingen • Automatische spoeling",
+        images: [
+          "Urinoir voor montage",
+          "Montage sifon op maat",
+          "Montage urinoir",
+          "Montage porseleinen afschermingen",
+          "Installatie spoelsysteem",
+          "Voltooide urinoir installatie"
+        ]
+      },
+      details: "Uitvoeringsdetails",
+      projectCounter: "Project {{current}} van {{total}}"
+    },
     nav: {
       start: "Start",
       services: "Diensten",
@@ -274,6 +388,65 @@ export const translations = {
     }
   },
   en: {
+        projects: {
+      title: "Plumbing Projects",
+      subtitle: "Recent projects completed in November 2025 - professional sanitary installations",
+      project1: {
+        title: "Shower Faucet Installation with Sensor",
+        description: "Installation of a modern shower faucet with sensor system from Grohe worth €350. The faucet is equipped with motion sensors that automatically activate water flow, providing up to 40% water savings. The work included precise connection to cold and hot water and electrical installation for the sensor system. Each shower took about 45 minutes of installation time.",
+        specs: "Sensor faucet Grohe • Waterproof IP68 • Water saving 40%",
+        images: [
+          "First new faucet, side view",
+          "First new faucet, front view",
+          "Second new faucet, side view",
+          "Second new faucet, front view",
+          "Space for faucets in rough construction",
+          "Just the new faucet"
+        ]
+      },
+      project2: {
+        title: "Heating Pipe Installation with Gas System",
+        description: "Complete installation of a heating system powered by natural gas. The project included installation of copper pipes for hot water, connection to a condensing boiler and exhaust pipe routing. Work was performed by a 2-person team. The system was equipped with safety valves and temperature regulators for optimal energy efficiency.",
+        specs: "Condensing boiler • Copper pipes • Exhaust system",
+        images: [
+          "Gas heating system location",
+          "Pipes ready with mounts",
+          "Pipes ready from other side",
+          "Location preparation",
+          "Enclosure installation",
+          "Heating system mounted",
+          "Heating system mounted",
+          "Exhaust connection"
+        ]
+      },
+      project3: {
+        title: "Bathroom for Disabled Persons",
+        description: "Installation of a bathroom adapted to the needs of wheelchair users. Key elements: sink mounted 5 cm lower than standard (85 cm instead of 90 cm) and special support handles. Sink with toilet took about 45 minutes, installation of handles and flush button about 2 hours. Total implementation time: 3 hours. This is a rare project - only once in several assignments does installation of an accessible bathroom occur.",
+        specs: "Sink 75 cm • Support handles • Flush button",
+        images: [
+          "Bathroom before installation",
+          "Sink",
+          "Toilet with handles and button"
+        ]
+      },
+      project4: {
+        title: "Urinal Installation with Porcelain Shields",
+        description: "Installation of urinals with shields made of high-quality porcelain. The project included installation of urinal system with automatic flushing and mounting of elegant side shields. Porcelain shields required special care during installation due to their fragility. The system was equipped with a photocell that activates flushing. The whole took 1 working day. This is a pioneering project in the field of urinal installation with porcelain shields.",
+        specs: "Urinal with photocell • Porcelain shields • Automatic flushing",
+        images: [
+          "Urinal before installation",
+          "Siphon installation to measure",
+          "Urinal installation",
+          "Porcelain shield installation",
+          "Flushing system installation",
+          "Completed urinal installation"
+        ]
+      },
+      details: "Implementation details",
+      projectCounter: "Project {{current}} of {{total}}"
+    },
+  
+
     nav: {
       start: "Home",
       services: "Services",

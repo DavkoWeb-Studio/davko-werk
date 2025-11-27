@@ -56,3 +56,7 @@ a {
   animation-delay: 0.3s;
   opacity: 0;
 }
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
