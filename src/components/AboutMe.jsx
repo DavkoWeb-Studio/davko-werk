@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-// USUŃ import jaImg i zastąp ścieżką względną
+// Importuj obraz bezpośrednio
+import jaImg from '/ja.png';
 
 export function AboutMe() {
   const { t } = useTranslation();
@@ -49,7 +50,7 @@ export function AboutMe() {
               <div className="relative w-[576px] h-[576px] md:w-[640px] md:h-[640px] lg:w-[768px] lg:h-[768px]">
                 <div className="w-full h-full rounded-full overflow-hidden border-8 border-white/20 shadow-2xl ring-4 ring-white/10">
                   <img 
-                    src="/ja.png"  
+                    src={jaImg}  
                     alt="Davko - Hydraulik" 
                     className="w-full h-full object-cover"
                   />
