@@ -8,14 +8,14 @@ import AboutMe from './components/AboutMe';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import GalleryCarousel from './components/GalleryCarousel';
-import { TestImages } from './components/TestImages';
+
 
 function App() {
   return (
     <div className="app">
       <Header />
       <main>
-              <TestImages />
+
         <Hero />
         <Services />
         <AboutMe />
