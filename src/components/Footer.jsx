@@ -1,8 +1,8 @@
 import React from 'react';
 import { Phone, Mail, MapPin, ArrowUp } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-// Importuj obraz bezpośrednio
-import logoImg from '/logo.png';
+
+// ❌ USUNIĘTO IMPORT: import logoImg from '/logo.png';
 
 export function Footer() {
   const { t } = useTranslation();
@@ -26,7 +26,8 @@ export function Footer() {
         <div>
           <div className="flex items-center gap-4 mb-4">
             <div className="w-12 h-12 rounded-lg bg-white flex items-center justify-center">
-              <img src={logoImg} alt="Logo" className="w-8 h-8 object-contain" /> {/* ZMIENIONE: użyj zmiennej */}
+              {/* ✅ ZMIANA: Bezpośrednia ścieżka do pliku w public */}
+              <img src="/logo.png" alt="Logo" className="w-8 h-8 object-contain" />
             </div>
             <div>
               <div className="font-extrabold">Davko Werk</div>

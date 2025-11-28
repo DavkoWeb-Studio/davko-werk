@@ -3,15 +3,13 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 export default function Services() {
-  const { t, ready } = useTranslation(); // <- gotowe tłumaczenia?
+  const { t, ready } = useTranslation();
 
-  //   ─────────── 1. Poczekaj, aż i18next wczyta zasoby ───────────
-  if (!ready) return null;               // możesz wstawić spinner
+  if (!ready) return null;
 
-  //   ─────────── 2. Dane usług ───────────
   const services = [
     {
-      icon: '🔧',
+      icon: '🔧', // To jest tekst (emoji), nie plik - jest bezpieczne
       title: t('services.servicesList.installations.title'),
       bullets: t('services.servicesList.installations.bullets', { returnObjects: true }),
       price:  t('services.servicesList.installations.price'),
@@ -52,7 +50,9 @@ export default function Services() {
       id="usługi"
       className="py-24 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-800 relative overflow-hidden"
     >
-      {/* dekoracje... */}
+      {/* Dekoracje tła */}
+      <div className="absolute -left-40 top-20 w-[600px] h-[600px] rounded-full blur-3xl opacity-20 bg-blue-500" />
+      <div className="absolute -right-32 top-1/3 w-[500px] h-[500px] rounded-full blur-3xl opacity-15 bg-yellow-500" />
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <div className="text-center mb-12 animate-fade-in-down">
@@ -67,7 +67,6 @@ export default function Services() {
           </p>
         </div>
 
-        {/*  ───── 3. map z bezpiecznikiem Array.isArray ───── */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 group">
           {services.map((service, idx) => (
             <article
@@ -124,7 +123,6 @@ export default function Services() {
         </div>
       </div>
 
-      {/* Style bez atrybutu jsx */}
       <style>{`
         @keyframes fadeInUp {
           from { opacity: 0; transform: translateY(40px); }

@@ -1,8 +1,8 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-// Importuj obraz bezpośrednio
-import logoImg from '/logo.png';
+
+// ❌ USUNIĘTO IMPORT: import logoImg from '/logo.png';
 
 export default function Hero() {
   const { t } = useTranslation();
@@ -109,8 +109,9 @@ export default function Hero() {
           <div className="relative animate-breathing scale-[2.0]">
             {/* Świecące tło za logo - z rotacją */}
             <div className="absolute inset-0 bg-blue-500/20 blur-3xl rounded-full animate-spin-slow"></div>
+            {/* ✅ ZMIANA: Bezpośrednia ścieżka tekstowa */}
             <img 
-              src={logoImg}  
+              src="/logo.png"  
               alt="" 
               className="relative w-full max-w-2xl h-auto object-contain drop-shadow-2xl"
             />

@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 import { Menu, Phone } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-// Importuj obrazy bezpośrednio
-import logoImg from '/logo.png';
-import plFlag from '/pl.png';
-import nlFlag from '/nl.png';
-import gbFlag from '/gb.png';
 
+// ❌ USUNIĘTO WSZYSTKIE IMPORTY OBRAZKÓW
+
+// ✅ ZMIANA: Używamy ścieżek tekstowych do plików w folderze public
 const languages = [
-  { code: 'pl', name: 'Polski', flag: plFlag }, // ZMIENIONE: użyj zaimportowanych zmiennych
-  { code: 'nl', name: 'Nederlands', flag: nlFlag },
-  { code: 'en', name: 'English', flag: gbFlag }
+  { code: 'pl', name: 'Polski', flag: '/pl.png' },
+  { code: 'nl', name: 'Nederlands', flag: '/nl.png' },
+  { code: 'en', name: 'English', flag: '/gb.png' }
 ];
 
 export default function Header({ compact = false }) {
@@ -49,7 +47,8 @@ export default function Header({ compact = false }) {
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between gap-6">
         <a href="#start" onClick={(e) => handleLinkClick(e, '#start')} className="flex items-center gap-3 no-underline">
           <div className="w-12 h-12 rounded-xl flex items-center justify-center shadow-lg bg-white border border-gray-200/80">
-            <img src={logoImg} alt="Logo Davko" className="w-8 h-8 object-contain" /> {/* ZMIENIONE: użyj zmiennej */}
+            {/* ✅ ZMIANA: Bezpośrednia ścieżka do logo */}
+            <img src="/logo.png" alt="Logo Davko" className="w-8 h-8 object-contain" />
           </div>
           <div className="hidden sm:block">
             <div className="font-extrabold text-lg text-gray-900">Davko Werk</div>
@@ -82,7 +81,8 @@ export default function Header({ compact = false }) {
                 }`}
                 title={lng.name}
               >
-                <img src={lng.flag} alt={lng.name} className="w-6 h-6 rounded-sm" /> {/* ZMIENIONE: użyj zmiennej */}
+                {/* Tutaj nic nie zmieniamy w JSX, bo dane są już poprawione w tablicy 'languages' */}
+                <img src={lng.flag} alt={lng.name} className="w-6 h-6 rounded-sm" />
               </button>
             ))}
           </div>
@@ -127,7 +127,7 @@ export default function Header({ compact = false }) {
                     i18n.language === lng.code ? 'bg-blue-100' : 'hover:bg-gray-100'
                   }`}
                 >
-                  <img src={lng.flag} alt={lng.name} className="w-6 h-6 rounded-sm" /> {/* ZMIENIONE: użyj zmiennej */}
+                  <img src={lng.flag} alt={lng.name} className="w-6 h-6 rounded-sm" />
                 </button>
               ))}
             </div>

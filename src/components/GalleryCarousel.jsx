@@ -1,37 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-// Importuj WSZYSTKIE obrazy projektów
-// Project 1
-import project1_1 from '/project1/1.jpg';
-import project1_2 from '/project1/2.jpg';
-import project1_3 from '/project1/3.jpg';
-import project1_4 from '/project1/4.jpg';
-import project1_5 from '/project1/5.jpg';
-import project1_6 from '/project1/6.jpg';
-
-// Project 2
-import project2_1 from '/project2/1.jpg';
-import project2_2 from '/project2/2.jpg';
-import project2_3 from '/project2/3.jpg';
-import project2_4 from '/project2/4.jpg';
-import project2_5 from '/project2/5.jpg';
-import project2_6 from '/project2/6.jpg';
-import project2_7 from '/project2/7.jpg';
-import project2_8 from '/project2/8.jpg';
-
-// Project 3
-import project3_1 from '/project3/1.jpg';
-import project3_2 from '/project3/2.jpg';
-import project3_3 from '/project3/3.jpg';
-
-// Project 4
-import project4_1 from '/project4/1.jpg';
-import project4_2 from '/project4/2.jpg';
-import project4_3 from '/project4/3.jpg';
-import project4_4 from '/project4/4.jpg';
-import project4_5 from '/project4/5.jpg';
-import project4_6 from '/project4/6.jpg';
+// ❌ USUŃ WSZYSTKIE IMPORTY OBRAZKÓW ❌
+// Nie potrzebujesz żadnych importów dla plików z /public
 
 const GalleryCarousel = () => {
   const { t } = useTranslation();
@@ -39,7 +10,7 @@ const GalleryCarousel = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [modalImageIndex, setModalImageIndex] = useState(0);
 
-  // Projekty z tłumaczeniami - ZMIENIONE: użyj zaimportowanych zmiennych
+  // ✅ Użyj bezpośrednich ścieżek (stringów)
   const projects = [
     {
       id: 1,
@@ -49,12 +20,12 @@ const GalleryCarousel = () => {
       duration: '2 × 45 min',
       specs: t('projects.project1.specs'),
       images: [
-        { id: 1, src: project1_1, alt: t('projects.project1.images.0') },
-        { id: 2, src: project1_2, alt: t('projects.project1.images.1') },
-        { id: 3, src: project1_3, alt: t('projects.project1.images.2') },
-        { id: 4, src: project1_4, alt: t('projects.project1.images.3') },
-        { id: 5, src: project1_5, alt: t('projects.project1.images.4') },
-        { id: 6, src: project1_6, alt: t('projects.project1.images.5') },
+        { id: 1, src: '/project1/1.jpg', alt: t('projects.project1.images.0') },
+        { id: 2, src: '/project1/2.jpg', alt: t('projects.project1.images.1') },
+        { id: 3, src: '/project1/3.jpg', alt: t('projects.project1.images.2') },
+        { id: 4, src: '/project1/4.jpg', alt: t('projects.project1.images.3') },
+        { id: 5, src: '/project1/5.jpg', alt: t('projects.project1.images.4') },
+        { id: 6, src: '/project1/6.jpg', alt: t('projects.project1.images.5') },
       ]
     },
     {
@@ -65,14 +36,14 @@ const GalleryCarousel = () => {
       duration: '2 dni',
       specs: t('projects.project2.specs'),
       images: [
-        { id: 1, src: project2_1, alt: t('projects.project2.images.0') },
-        { id: 2, src: project2_2, alt: t('projects.project2.images.1') },
-        { id: 3, src: project2_3, alt: t('projects.project2.images.2') },
-        { id: 4, src: project2_4, alt: t('projects.project2.images.3') },
-        { id: 5, src: project2_5, alt: t('projects.project2.images.4') },
-        { id: 6, src: project2_6, alt: t('projects.project2.images.5') },
-        { id: 7, src: project2_7, alt: t('projects.project2.images.6') },
-        { id: 8, src: project2_8, alt: t('projects.project2.images.7') },
+        { id: 1, src: '/project2/1.jpg', alt: t('projects.project2.images.0') },
+        { id: 2, src: '/project2/2.jpg', alt: t('projects.project2.images.1') },
+        { id: 3, src: '/project2/3.jpg', alt: t('projects.project2.images.2') },
+        { id: 4, src: '/project2/4.jpg', alt: t('projects.project2.images.3') },
+        { id: 5, src: '/project2/5.jpg', alt: t('projects.project2.images.4') },
+        { id: 6, src: '/project2/6.jpg', alt: t('projects.project2.images.5') },
+        { id: 7, src: '/project2/7.jpg', alt: t('projects.project2.images.6') },
+        { id: 8, src: '/project2/8.jpg', alt: t('projects.project2.images.7') },
       ]
     },
     {
@@ -83,9 +54,9 @@ const GalleryCarousel = () => {
       duration: '3 godziny',
       specs: t('projects.project3.specs'),
       images: [
-        { id: 1, src: project3_1, alt: t('projects.project3.images.0') },
-        { id: 2, src: project3_2, alt: t('projects.project3.images.1') },
-        { id: 3, src: project3_3, alt: t('projects.project3.images.2') },
+        { id: 1, src: '/project3/1.jpg', alt: t('projects.project3.images.0') },
+        { id: 2, src: '/project3/2.jpg', alt: t('projects.project3.images.1') },
+        { id: 3, src: '/project3/3.jpg', alt: t('projects.project3.images.2') },
       ]
     },
     {
@@ -96,12 +67,12 @@ const GalleryCarousel = () => {
       duration: '1 dzień',
       specs: t('projects.project4.specs'),
       images: [
-        { id: 1, src: project4_1, alt: t('projects.project4.images.0') },
-        { id: 2, src: project4_2, alt: t('projects.project4.images.1') },
-        { id: 3, src: project4_3, alt: t('projects.project4.images.2') },
-        { id: 4, src: project4_4, alt: t('projects.project4.images.3') },
-        { id: 5, src: project4_5, alt: t('projects.project4.images.4') },
-        { id: 6, src: project4_6, alt: t('projects.project4.images.5') },
+        { id: 1, src: '/project4/1.jpg', alt: t('projects.project4.images.0') },
+        { id: 2, src: '/project4/2.jpg', alt: t('projects.project4.images.1') },
+        { id: 3, src: '/project4/3.jpg', alt: t('projects.project4.images.2') },
+        { id: 4, src: '/project4/4.jpg', alt: t('projects.project4.images.3') },
+        { id: 5, src: '/project4/5.jpg', alt: t('projects.project4.images.4') },
+        { id: 6, src: '/project4/6.jpg', alt: t('projects.project4.images.5') },
       ]
     }
   ];

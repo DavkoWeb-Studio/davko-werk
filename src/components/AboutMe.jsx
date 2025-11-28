@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-// Importuj obraz bezpośrednio
-import jaImg from '/ja.png';
+
+// ❌ USUNIĘTO IMPORT: import jaImg from '/ja.png';
 
 export function AboutMe() {
   const { t } = useTranslation();
@@ -49,8 +49,9 @@ export function AboutMe() {
               {/* Zdjęcie w kółku */}
               <div className="relative w-[576px] h-[576px] md:w-[640px] md:h-[640px] lg:w-[768px] lg:h-[768px]">
                 <div className="w-full h-full rounded-full overflow-hidden border-8 border-white/20 shadow-2xl ring-4 ring-white/10">
+                  {/* ✅ ZMIANA: Bezpośrednia ścieżka tekstowa */}
                   <img 
-                    src={jaImg}  
+                    src="/ja.png"  
                     alt="Davko - Hydraulik" 
                     className="w-full h-full object-cover"
                   />
