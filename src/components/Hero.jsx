@@ -1,7 +1,7 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import logoImg from '../assets/logo.png';
+// USUŃ import logoImg i zastąp ścieżką względną
 
 export default function Hero() {
   const { t } = useTranslation();
@@ -109,7 +109,8 @@ export default function Hero() {
             {/* Świecące tło za logo - z rotacją */}
             <div className="absolute inset-0 bg-blue-500/20 blur-3xl rounded-full animate-spin-slow"></div>
             <img 
-              src={logoImg} 
+              src="/logo.png"
+          
               alt="" 
               className="relative w-full max-w-2xl h-auto object-contain drop-shadow-2xl"
             />

@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import { Menu, Phone } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import logoImg from '../assets/logo.png';
-import plFlag from '../assets/pl.png';
-import nlFlag from '../assets/nl.png';
-import gbFlag from '../assets/gb.png';
+// USUŃ wszystkie importy obrazów i zastąp ścieżkami względnymi
 
 const languages = [
-  { code: 'pl', name: 'Polski', flag: plFlag },
-  { code: 'nl', name: 'Nederlands', flag: nlFlag },
-  { code: 'en', name: 'English', flag: gbFlag }
+  { code: 'pl', name: 'Polski', flag: '/pl.png' }, // ZMIENIONE: ścieżki względne
+  { code: 'nl', name: 'Nederlands', flag: '/nl.png' },
+  { code: 'en', name: 'English', flag: '/gb.png' }
 ];
 
 export default function Header({ compact = false }) {
@@ -48,7 +45,7 @@ export default function Header({ compact = false }) {
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between gap-6">
         <a href="#start" onClick={(e) => handleLinkClick(e, '#start')} className="flex items-center gap-3 no-underline">
           <div className="w-12 h-12 rounded-xl flex items-center justify-center shadow-lg bg-white border border-gray-200/80">
-            <img src={logoImg} alt="Logo Davko" className="w-8 h-8 object-contain" />
+            <img src="/logo.png" alt="Logo Davko" className="w-8 h-8 object-contain" /> {/* ZMIENIONE */}
           </div>
           <div className="hidden sm:block">
             <div className="font-extrabold text-lg text-gray-900">Davko Werk</div>

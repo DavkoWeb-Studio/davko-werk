@@ -1,7 +1,7 @@
 import React from 'react';
 import { Phone, Mail, MapPin, ArrowUp } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import logoImg from '../assets/logo.png';
+// USUŃ import logoImg i zastąp ścieżką względną
 
 export function Footer() {
   const { t } = useTranslation();
@@ -25,7 +25,7 @@ export function Footer() {
         <div>
           <div className="flex items-center gap-4 mb-4">
             <div className="w-12 h-12 rounded-lg bg-white flex items-center justify-center">
-              <img src={logoImg} alt="Logo" className="w-8 h-8 object-contain" />
+              <img src="/logo.png" alt="Logo" className="w-8 h-8 object-contain" /> {/* ZMIENIONE: z logoImg na ścieżkę względną */}
             </div>
             <div>
               <div className="font-extrabold">Davko Werk</div>
@@ -55,13 +55,13 @@ export function Footer() {
           <div className="text-sm space-y-2">
             <div className="flex items-center gap-3">
               <Phone className="w-4 h-4 text-gray-400" />
-              <a href="tel:+31612345678" className="text-gray-300 hover:text-white transition-colors">
+              <a href="tel:+31647210802" className="text-gray-300 hover:text-white transition-colors"> {/* POPRAWIONY numer telefonu */}
                 +31 6 472 108 02
               </a>
             </div>
             <div className="flex items-center gap-3">
               <Mail className="w-4 h-4 text-gray-400" />
-              <a href="mailto:davko.werk@example.com" className="text-gray-300 hover:text-white transition-colors">
+              <a href="mailto:davkowerk@gmail.com" className="text-gray-300 hover:text-white transition-colors"> {/* POPRAWIONY email */}
                 davkowerk@gmail.com
               </a>
             </div>
