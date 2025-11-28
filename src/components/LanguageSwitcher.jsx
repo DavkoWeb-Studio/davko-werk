@@ -1,16 +1,16 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import plFlag from '../assets/flags/pl.png';
-import nlFlag from '../assets/flags/nl.png';
-import gbFlag from '../assets/flags/gb.png';
+
+// ✅ USUNIĘTO WSZYSTKIE IMPORTY OBRAZKÓW
 
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
 
+  // ✅ Używamy bezpośrednich ścieżek do plików w /public
   const languages = [
-    { code: 'pl', name: 'Polski', flag: plFlag },
-    { code: 'nl', name: 'Nederlands', flag: nlFlag },
-    { code: 'en', name: 'English', flag: gbFlag }
+    { code: 'pl', name: 'Polski', flag: '/pl.png' },
+    { code: 'nl', name: 'Nederlands', flag: '/nl.png' },
+    { code: 'en', name: 'English', flag: '/gb.png' }
   ];
 
   return (
