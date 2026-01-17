@@ -1,83 +1,80 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-// ❌ USUŃ WSZYSTKIE IMPORTY OBRAZKÓW ❌
-// Nie potrzebujesz żadnych importów dla plików z /public
-
 const GalleryCarousel = () => {
   const { t } = useTranslation();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [selectedImage, setSelectedImage] = useState(null);
   const [modalImageIndex, setModalImageIndex] = useState(0);
 
-  // ✅ Użyj bezpośrednich ścieżek (stringów)
-  const projects = [
+  // Funkcja generująca tablicę zdjęć
+  const generateImages = (id, count, ext = 'jpg') => {
+    return Array.from({ length: count }, (_, i) => ({
+      id: i + 1,
+      src: `/${id}/${i + 1}.${ext}`,
+      alt: t(`projects.${id}.images.${i}`)
+    }));
+  };
+
+    const projects = [
     {
       id: 1,
       title: t('projects.project1.title'),
       description: t('projects.project1.description'),
       date: '25.11.2025',
-      duration: '2 × 45 min',
+      duration: t('projects.project1.duration'), // ✅ ZMIANA TUTAJ
       specs: t('projects.project1.specs'),
-      images: [
-        { id: 1, src: '/project1/1.jpg', alt: t('projects.project1.images.0') },
-        { id: 2, src: '/project1/2.jpg', alt: t('projects.project1.images.1') },
-        { id: 3, src: '/project1/3.jpg', alt: t('projects.project1.images.2') },
-        { id: 4, src: '/project1/4.jpg', alt: t('projects.project1.images.3') },
-        { id: 5, src: '/project1/5.jpg', alt: t('projects.project1.images.4') },
-        { id: 6, src: '/project1/6.jpg', alt: t('projects.project1.images.5') },
-      ]
+      images: generateImages('project1', 6)
     },
     {
       id: 2,
       title: t('projects.project2.title'),
       description: t('projects.project2.description'),
       date: '19.11.2025',
-      duration: '2 dni',
+      duration: t('projects.project2.duration'), // ✅ ZMIANA TUTAJ
       specs: t('projects.project2.specs'),
-      images: [
-        { id: 1, src: '/project2/1.jpg', alt: t('projects.project2.images.0') },
-        { id: 2, src: '/project2/2.jpg', alt: t('projects.project2.images.1') },
-        { id: 3, src: '/project2/3.jpg', alt: t('projects.project2.images.2') },
-        { id: 4, src: '/project2/4.jpg', alt: t('projects.project2.images.3') },
-        { id: 5, src: '/project2/5.jpg', alt: t('projects.project2.images.4') },
-        { id: 6, src: '/project2/6.jpg', alt: t('projects.project2.images.5') },
-        { id: 7, src: '/project2/7.jpg', alt: t('projects.project2.images.6') },
-        { id: 8, src: '/project2/8.jpg', alt: t('projects.project2.images.7') },
-      ]
+      images: generateImages('project2', 8)
     },
     {
       id: 3,
       title: t('projects.project3.title'),
       description: t('projects.project3.description'),
       date: '22.11.2025',
-      duration: '3 godziny',
+      duration: t('projects.project3.duration'), // ✅ ZMIANA TUTAJ
       specs: t('projects.project3.specs'),
-      images: [
-        { id: 1, src: '/project3/1.jpg', alt: t('projects.project3.images.0') },
-        { id: 2, src: '/project3/2.jpg', alt: t('projects.project3.images.1') },
-        { id: 3, src: '/project3/3.jpg', alt: t('projects.project3.images.2') },
-      ]
+      images: generateImages('project3', 3)
     },
     {
       id: 4,
       title: t('projects.project4.title'),
       description: t('projects.project4.description'),
       date: '27.11.2025',
-      duration: '1 dzień',
+      duration: t('projects.project4.duration'), // ✅ ZMIANA TUTAJ
       specs: t('projects.project4.specs'),
-      images: [
-        { id: 1, src: '/project4/1.jpg', alt: t('projects.project4.images.0') },
-        { id: 2, src: '/project4/2.jpg', alt: t('projects.project4.images.1') },
-        { id: 3, src: '/project4/3.jpg', alt: t('projects.project4.images.2') },
-        { id: 4, src: '/project4/4.jpg', alt: t('projects.project4.images.3') },
-        { id: 5, src: '/project4/5.jpg', alt: t('projects.project4.images.4') },
-        { id: 6, src: '/project4/6.jpg', alt: t('projects.project4.images.5') },
-      ]
+      images: generateImages('project4', 6)
+    },
+    {
+      id: 5,
+      title: t('projects.project5.title'),
+      description: t('projects.project5.description'),
+      date: '02.12 - 08.12.2025',
+      duration: t('projects.project5.duration'), // ✅ ZMIANA TUTAJ
+      specs: t('projects.project5.specs'),
+      images: generateImages('project5', 17, 'jpeg')
+    },
+    {
+      id: 6,
+      title: t('projects.project6.title'),
+      description: t('projects.project6.description'),
+      date: '10.12 - 19.12.2025',
+      duration: t('projects.project6.duration'), // ✅ ZMIANA TUTAJ
+      specs: t('projects.project6.specs'),
+      images: generateImages('project6', 16, 'jpeg')
     }
   ];
 
-  // PROSTE funkcje nawigacji
+  // --- LOGIKA NAWIGACJI ---
+
   const nextSlide = () => {
     setCurrentSlide(prev => {
       const next = prev + 1;
@@ -142,27 +139,25 @@ const GalleryCarousel = () => {
     };
   }, [selectedImage]);
 
-  // Zabezpieczenie przed nieistniejącym projektem
   if (!projects[currentSlide]) {
-    console.error('Błąd: Nie znaleziono projektu dla slajdu:', currentSlide);
-    setCurrentSlide(0);
     return null;
   }
 
   const currentProject = projects[currentSlide];
 
-  // Funkcja do określania klasy gridu na podstawie liczby zdjęć
+  // ✅ ULEPSZONA funkcja gridu
+  // Dla dużej ilości zdjęć (16-17) używamy 5 kolumn, żeby galeria była bardziej kompaktowa
   const getGridClass = (imageCount) => {
-    if (imageCount === 3) return "grid-cols-1 md:grid-cols-3 gap-4";
-    if (imageCount === 6) return "grid-cols-2 md:grid-cols-3 gap-4";
-    return "grid-cols-2 md:grid-cols-4 gap-4";
+    if (imageCount <= 3) return "grid-cols-1 md:grid-cols-3 gap-4";
+    if (imageCount <= 6) return "grid-cols-2 md:grid-cols-3 gap-4";
+    if (imageCount <= 8) return "grid-cols-2 md:grid-cols-4 gap-4";
+    // Dla projektów 5 i 6 (dużo zdjęć) - gęstsza siatka
+    return "grid-cols-3 md:grid-cols-5 gap-3"; 
   };
 
-  // Funkcja do tłumaczenia licznika zdjęć w modal
   const getImageCounterText = () => {
     const current = modalImageIndex + 1;
     const total = currentProject.images.length;
-    
     return `${current} ${t('projects.of')} ${total}`;
   };
 
@@ -231,7 +226,7 @@ const GalleryCarousel = () => {
                 )}
               </div>
 
-              {/* Galeria zdjęć - dynamiczny grid Z FILTRAMI */}
+              {/* Galeria zdjęć */}
               <div className={`grid ${getGridClass(currentProject.images.length)} mb-12`}>
                 {currentProject.images.map((image, index) => (
                   <div 
@@ -246,7 +241,7 @@ const GalleryCarousel = () => {
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-davkoBlue/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-3">
-                      <span className="text-white text-sm font-medium text-center">
+                      <span className="text-white text-sm font-medium text-center line-clamp-3">
                         {image.alt}
                       </span>
                       <div className="absolute bottom-4 right-4 bg-white/90 rounded-full p-2">
@@ -273,7 +268,7 @@ const GalleryCarousel = () => {
               </div>
             </div>
 
-            {/* Wskaźniki slajdów */}
+            {/* Kropki nawigacji */}
             <div className="flex justify-center space-x-3 pb-8">
               {projects.map((_, index) => (
                 <button
@@ -299,11 +294,10 @@ const GalleryCarousel = () => {
         </div>
       </section>
 
-      {/* Modal do powiększania zdjęć Z FILTRAMI */}
+      {/* Modal */}
       {selectedImage && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm">
           <div className="relative max-w-7xl max-h-[90vh] w-full mx-4">
-            {/* Przyciski nawigacji w modal */}
             <button
               onClick={prevImage}
               className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-davkoBlue hover:bg-[#005a8c] text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 border-2 border-white"
@@ -322,7 +316,6 @@ const GalleryCarousel = () => {
               </svg>
             </button>
 
-            {/* Przycisk zamknięcia */}
             <button
               onClick={closeModal}
               className="absolute top-4 right-4 z-10 bg-white/20 hover:bg-white/30 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 backdrop-blur-sm"
@@ -332,7 +325,6 @@ const GalleryCarousel = () => {
               </svg>
             </button>
 
-            {/* Zdjęcie w modal Z FILTRAMI */}
             <div className="flex flex-col items-center">
               <img
                 src={currentProject.images[modalImageIndex].src}
@@ -349,8 +341,7 @@ const GalleryCarousel = () => {
               </div>
             </div>
 
-            {/* Miniaturki na dole */}
-            <div className="flex justify-center mt-6 space-x-2 overflow-x-auto pb-4">
+            <div className="flex justify-center mt-6 space-x-2 overflow-x-auto pb-4 px-4">
               {currentProject.images.map((image, index) => (
                 <button
                   key={image.id}
