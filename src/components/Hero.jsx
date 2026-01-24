@@ -2,8 +2,6 @@ import React from 'react';
 import { ChevronRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
-// ❌ USUNIĘTO IMPORT: import logoImg from '/logo.png';
-
 export default function Hero() {
   const { t } = useTranslation();
 
@@ -105,15 +103,15 @@ export default function Hero() {
         </div>
 
         {/* Kolumna prawa - Logo - ANIMOWANE ODDYCHANIE */}
-        <div className="relative hidden lg:flex justify-center items-center">
-          <div className="relative animate-breathing scale-[2.0]">
-            {/* Świecące tło za logo - z rotacją */}
-            <div className="absolute inset-0 bg-blue-500/20 blur-3xl rounded-full animate-spin-slow"></div>
-            {/* ✅ ZMIANA: Bezpośrednia ścieżka tekstowa */}
+        <div className="relative flex justify-center items-center mt-16 lg:mt-0">
+          <div className="relative animate-breathing scale-100 lg:scale-[2.0]">
+            {/* Świecące tło za logo - z rotacją (ukryte na telefonach) */}
+            <div className="hidden lg:block absolute inset-0 bg-blue-500/20 blur-3xl rounded-full animate-spin-slow"></div>
+            {/* Logo - mniejsze na telefonach, większe na desktopach */}
             <img 
               src="/logo.png"  
-              alt="" 
-              className="relative w-full max-w-2xl h-auto object-contain drop-shadow-2xl"
+              alt="Logo firmy" 
+              className="relative w-full max-w-xs lg:max-w-2xl h-auto object-contain drop-shadow-2xl"
             />
           </div>
         </div>
